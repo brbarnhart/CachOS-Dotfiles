@@ -47,7 +47,7 @@
         "capsuleColorKey": "none",
         "capsuleOpacity": 1,
         "contentPadding": 2,
-        "density": "comfortable",
+        "density": "default",
         "displayMode": "always_visible",
         "enableExclusionZoneInset": true,
         "fontScale": 1,
@@ -105,11 +105,11 @@
                     "colorizeSystemIcon": "none",
                     "colorizeSystemText": "none",
                     "customIconPath": "",
-                    "enableColorization": true,
+                    "enableColorization": false,
                     "icon": "rocket",
                     "iconColor": "none",
                     "id": "Launcher",
-                    "useDistroLogo": true
+                    "useDistroLogo": false
                 },
                 {
                     "clockColor": "none",
@@ -258,7 +258,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Tokyo Night",
+        "predefinedScheme": "Noctalia (default)",
         "schedulingMode": "off",
         "syncGsettings": true,
         "useWallpaperColors": false
@@ -417,7 +417,7 @@
         "passwordChars": false,
         "radiusRatio": 1,
         "reverseScroll": false,
-        "scaleRatio": 1.05,
+        "scaleRatio": 1,
         "screenRadiusRatio": 1,
         "shadowDirection": "bottom_right",
         "shadowOffsetX": 2,
@@ -479,7 +479,7 @@
         "bluetoothRssiPollingEnabled": false,
         "disableDiscoverability": false,
         "networkPanelView": "wifi",
-        "wifiDetailsViewMode": "list"
+        "wifiDetailsViewMode": "grid"
     },
     "nightLight": {
         "autoSchedule": true,
@@ -666,10 +666,10 @@
             "pixelate",
             "honeycomb"
         ],
-        "useOriginalImages": true,
+        "useOriginalImages": false,
         "useSolidColor": false,
         "useWallhaven": false,
-        "viewMode": "recursive",
+        "viewMode": "single",
         "wallhavenApiKey": "",
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",

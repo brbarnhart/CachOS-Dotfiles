@@ -1,0 +1,23 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  // === Your custom Vim bindings ===
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore",
+    },
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual)",
+    "bindings": {
+      "shift-h": ["workspace::SendKeystrokes", "^"], // start of line (first non-blank)
+      "shift-l": ["workspace::SendKeystrokes", "$"], // end of line
+    },
+  },
+]

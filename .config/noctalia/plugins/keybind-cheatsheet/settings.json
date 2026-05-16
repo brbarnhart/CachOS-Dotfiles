@@ -78,7 +78,7 @@
         },
         {
           "keys": "Super + E",
-          "desc": "File Manager: Nautilus"
+          "desc": "File Manager"
         }
       ]
     },
@@ -105,27 +105,6 @@
         {
           "keys": "Super + L",
           "desc": "Focus Column Right"
-        },
-        {
-          "keys": "Super + Shift + WheelScrollDown",
-          "desc": "Focus Column Right"
-        },
-        {
-          "keys": "Super + Shift + WheelScrollUp",
-          "desc": "Focus Column Left"
-        }
-      ]
-    },
-    {
-      "title": "Window Focus",
-      "binds": [
-        {
-          "keys": "Super + K",
-          "desc": "Focus Window Up"
-        },
-        {
-          "keys": "Super + J",
-          "desc": "Focus Window Down"
         }
       ]
     },
@@ -138,6 +117,14 @@
         },
         {
           "keys": "Super + WheelScrollUp",
+          "desc": "Focus Workspace Up"
+        },
+        {
+          "keys": "Super + J",
+          "desc": "Focus Workspace Down"
+        },
+        {
+          "keys": "Super + k",
           "desc": "Focus Workspace Up"
         },
         {
@@ -155,26 +142,6 @@
         {
           "keys": "Super + 4",
           "desc": "Focus Workspace 4"
-        },
-        {
-          "keys": "Super + 5",
-          "desc": "Focus Workspace 5"
-        },
-        {
-          "keys": "Super + 6",
-          "desc": "Focus Workspace 6"
-        },
-        {
-          "keys": "Super + 7",
-          "desc": "Focus Workspace 7"
-        },
-        {
-          "keys": "Super + 8",
-          "desc": "Focus Workspace 8"
-        },
-        {
-          "keys": "Super + 9",
-          "desc": "Focus Workspace 9"
         },
         {
           "keys": "Super + TAB",
@@ -208,42 +175,6 @@
         {
           "keys": "Super + Shift + K",
           "desc": "Move Column To Workspace Up"
-        },
-        {
-          "keys": "Super + CTRL + 1",
-          "desc": "Move Column To Workspace 1"
-        },
-        {
-          "keys": "Super + CTRL + 2",
-          "desc": "Move Column To Workspace 2"
-        },
-        {
-          "keys": "Super + CTRL + 3",
-          "desc": "Move Column To Workspace 3"
-        },
-        {
-          "keys": "Super + CTRL + 4",
-          "desc": "Move Column To Workspace 4"
-        },
-        {
-          "keys": "Super + CTRL + 5",
-          "desc": "Move Column To Workspace 5"
-        },
-        {
-          "keys": "Super + CTRL + 6",
-          "desc": "Move Column To Workspace 6"
-        },
-        {
-          "keys": "Super + CTRL + 7",
-          "desc": "Move Column To Workspace 7"
-        },
-        {
-          "keys": "Super + CTRL + 8",
-          "desc": "Move Column To Workspace 8"
-        },
-        {
-          "keys": "Super + CTRL + 9",
-          "desc": "Move Column To Workspace 9"
         }
       ]
     },
@@ -266,23 +197,6 @@
         {
           "keys": "Super + Shift + S",
           "desc": "Screenshot"
-        },
-        {
-          "keys": "CTRL + Shift + 2",
-          "desc": "Screenshot Screen"
-        },
-        {
-          "keys": "CTRL + Shift + 3",
-          "desc": "Screenshot Window"
-        }
-      ]
-    },
-    {
-      "title": "Power",
-      "binds": [
-        {
-          "keys": "Super + Shift + P",
-          "desc": "Power Off Monitors"
         }
       ]
     },
@@ -298,10 +212,6 @@
     {
       "title": "Other",
       "binds": [
-        {
-          "keys": "Super + Shift + ESCAPE",
-          "desc": "Show Hotkey Overlay"
-        },
         {
           "keys": "Super + CTRL + H",
           "desc": "Focus Monitor Left"
