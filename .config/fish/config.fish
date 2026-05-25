@@ -20,3 +20,7 @@ set -gx VISUAL "zed --wait"
 
 # uv
 fish_add_path "/home/ben/.local/bin"
+
+# >>> grok installer >>>
+fish_add_path $HOME/.grok/bin
+# <<< grok installer <<<
