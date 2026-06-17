@@ -20,4 +20,140 @@
       "shift-l": ["workspace::SendKeystrokes", "$"], // end of line
     },
   },
+  {
+    "context": "vim_mode == normal || vim_mode == visual || vim_mode == operator",
+    "bindings": {
+      "alt-i": "pane::ActivatePreviousItem"
+    }
+  },
+  {
+    "context": "vim_mode == normal || vim_mode == visual || vim_mode == operator",
+    "unbind": {
+      "[ b": "pane::ActivatePreviousItem"
+    }
+  },
+  {
+    "context": "vim_mode == normal || vim_mode == visual || vim_mode == operator",
+    "bindings": {
+      "alt-o": "pane::ActivateNextItem"
+    }
+  },
+  {
+    "context": "vim_mode == normal || vim_mode == visual || vim_mode == operator",
+    "unbind": {
+      "] b": "pane::ActivateNextItem"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "unbind": {
+      "ctrl-o": "pane::GoBack"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "unbind": {
+      "ctrl-i": "pane::GoForward"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "alt-w": [
+        "pane::CloseActiveItem",
+        {
+          "close_pinned": false
+        }
+      ]
+    }
+  },
+  {
+    "context": "Pane",
+    "unbind": {
+      "ctrl-w": [
+        "pane::CloseActiveItem",
+        {
+          "close_pinned": false
+        }
+      ]
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "alt-shift-i": "pane::GoBack"
+    }
+  },
+  {
+    "context": "Pane",
+    "unbind": {
+      "back": "pane::GoBack"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "alt-shift-o": "pane::GoForward"
+    }
+  },
+  {
+    "context": "Pane",
+    "unbind": {
+      "forward": "pane::GoForward"
+    }
+  },
+  {
+    "context": "(VimControl && !menu) || (!Editor && !Terminal)",
+    "bindings": {
+      "alt-k": "workspace::ActivatePaneUp"
+    }
+  },
+  {
+    "context": "(VimControl && !menu) || (!Editor && !Terminal)",
+    "unbind": {
+      "ctrl-w ctrl-k": "workspace::ActivatePaneUp"
+    }
+  },
+  {
+    "context": "(VimControl && !menu) || (!Editor && !Terminal)",
+    "bindings": {
+      "alt-j": "workspace::ActivatePaneDown"
+    }
+  },
+  {
+    "context": "(VimControl && !menu) || (!Editor && !Terminal)",
+    "unbind": {
+      "ctrl-w ctrl-j": "workspace::ActivatePaneDown"
+    }
+  },
+  {
+    "context": "(VimControl && !menu) || (!Editor && !Terminal)",
+    "bindings": {
+      "alt-h": "workspace::ActivatePaneLeft"
+    }
+  },
+  {
+    "context": "(VimControl && !menu) || (!Editor && !Terminal)",
+    "unbind": {
+      "ctrl-w ctrl-h": "workspace::ActivatePaneLeft"
+    }
+  },
+  {
+    "context": "(VimControl && !menu) || (!Editor && !Terminal)",
+    "bindings": {
+      "alt-l": "workspace::ActivatePaneRight"
+    }
+  },
+  {
+    "context": "(VimControl && !menu) || (!Editor && !Terminal)",
+    "unbind": {
+      "ctrl-w ctrl-l": "workspace::ActivatePaneRight"
+    }
+  },
+  {
+    "context": "Pane",
+    "unbind": {
+      "ctrl-alt-_": "pane::GoForward"
+    }
+  }
 ]
