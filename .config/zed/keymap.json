@@ -20,4 +20,52 @@
       "shift-l": ["workspace::SendKeystrokes", "$"], // end of line
     },
   },
+  {
+    "context": "(VimControl && !menu) || (!Editor && !Terminal)",
+    "bindings": {
+      "alt-j": "vim::GoToTab"
+    }
+  },
+  {
+    "context": "(VimControl && !menu) || (!Editor && !Terminal)",
+    "unbind": {
+      "g t": "vim::GoToTab"
+    }
+  },
+  {
+    "context": "(VimControl && !menu) || (!Editor && !Terminal)",
+    "bindings": {
+      "alt-k": "vim::GoToPreviousTab"
+    }
+  },
+  {
+    "context": "(VimControl && !menu) || (!Editor && !Terminal)",
+    "unbind": {
+      "g shift-t": "vim::GoToPreviousTab"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "alt-h": "pane::GoBack"
+    }
+  },
+  {
+    "context": "Pane",
+    "unbind": {
+      "ctrl-alt--": "pane::GoBack"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "alt-l": "pane::GoForward"
+    }
+  },
+  {
+    "context": "Pane",
+    "unbind": {
+      "ctrl-alt-_": "pane::GoForward"
+    }
+  }
 ]
