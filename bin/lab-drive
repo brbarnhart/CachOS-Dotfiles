@@ -1,0 +1,27 @@
+#!/bin/bash
+set -euo pipefail
+
+sudo -v
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Make sure Bitwarden is unlocked
+source "$SCRIPT_DIR/bw-unlock"
+
+# make sure VPN is connected
+"$SCRIPT_DIR/ou-vpn"
+
+SHARE="//okc-file2-bus/basic_Sciences/Cell_Biology/LABS/Cui Lab"
+MOUNTPOINT="$HOME/labdrive"
+bw_item="OU Self Service"
+
+USERNAME=$(bw get username "$bw_item")
+PASSWORD=$(bw get password "$bw_item")
+
+mkdir -p "$MOUNTPOINT"
+
+# Mount (add any extra options your lab requires)
+sudo mount -t cifs "$SHARE" "$MOUNTPOINT" \
+    -o username="$USERNAME",password="$PASSWORD",uid=$(id -u),gid=$(id -g),iocharset=utf8,vers=3.0
+
+echo "Lab drive mounted at $MOUNTPOINT"

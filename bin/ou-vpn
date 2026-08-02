@@ -1,0 +1,25 @@
+#!/bin/bash
+set -euo pipefail
+
+if ip link show tun0 &>/dev/null; then
+	echo "OU VPN already connected"
+	exit 0
+fi
+
+sudo -v
+
+# Make sure Bitwarden is unlocked
+source bw-unlock
+
+bw_item="OU Self Service"                   # exact name (or use item id)
+username=$(bw get username "$bw_item")
+password=$(bw get password "$bw_item")
+
+# Start vpn in the background
+echo "$password" | nohup sudo -E  gpclient connect connect2.ouhsc.edu \
+	-u "$username" \
+	--passwd-on-stdin > \
+	/tmp/gpclient.log 2>&1 &
+
+echo "OU VPN connected"
+exit 0
