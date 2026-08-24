@@ -1,46 +1,49 @@
-vim.pack.add({
-	{ src = "https://github.com/stevearc/conform.nvim", name = "conform" },
-	{ src = "https://github.com/mfussenegger/nvim-lint", name = "lint" },
-})
+return {
+	{
+		"stevearc/conform.nvim",
+		event = { "BufWritePre" },
+		cmd = { "ConformInfo" },
+		opts = {
+			formatters_by_ft = {
+				lua = { "stylua" },
+				python = { "ruff_format", "ruff_organize_imports" },
+				rust = { "rustfmt" },
+				quarto = { "injected" },
+			},
+			format_on_save = { lsp_format = "fallback" },
+			undojoin = true,
 
-require("conform").setup({
-	formatters_by_ft = {
-		lua = { "stylua" },
-		python = { "ruff_format", "ruff_organize_imports" },
-		rust = { "rustfmt" },
-		r = { "air" },
+			formatters = {
+				injected = {
+					options = {
+						ignore_errors = false,
+						-- map of treesitter language to file extension
+						-- a temporary file name with this extension will be generated during formatting
+						-- because some formatters care about the filename.
+						lang_to_ext = {
+							bash = "sh",
+							latex = "tex",
+							markdown = "md",
+							python = "py",
+							rust = "rs",
+							r = "r",
+						},
+						-- map of treesitter language to formatters to use
+						-- (defaults to the value from formatters_by_ft)
+						lang_to_formatters = {},
+					},
+				},
+			},
+		},
+		keys = {
+			{
+				"<leader>cf",
+				function()
+					require("conform").format({ async = true, lsp_format = "fallback" })
+				end,
+				mode = { "n", "v" },
+				desc = "Format buffer",
+			},
+		},
 	},
-	format_on_save = { lsp_format = "fallback" },
-	undojoin = true,
-})
-
-local lint = require("lint")
-
--- Only show diagnostics close to the cursor
-vim.diagnostic.config({
-	virtual_text = {
-		spacing = 4,
-		prefix = function(diagnostic)
-			local icons = {
-				[vim.diagnostic.severity.ERROR] = " ",
-				[vim.diagnostic.severity.WARN] = "󰉀 ",
-				[vim.diagnostic.severity.INFO] = " ",
-				[vim.diagnostic.severity.HINT] = "󰌵 ",
-			}
-			return icons[diagnostic.severity] or ""
-		end,
-	},
-	signs = false,
-	underline = true,
-	update_in_insert = false,
-})
-
--- Auto-run the linter only for the configured filetypes
-vim.api.nvim_create_autocmd("BufWritePost", {
-	callback = function()
-		local ft = vim.bo.filetype
-		if lint.linters_by_ft[ft] then
-			lint.try_lint()
-		end
-	end,
-})
+}

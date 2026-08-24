@@ -1,41 +1,48 @@
-vim.pack.add({
-	{ src = "https://github.com/folke/noice.nvim", name = "noice" },
-	{ src = "https://github.com/MunifTanjim/nui.nvim", name = "nui" },
-	{ src = "https://github.com/rcarriga/nvim-notify", name = "notify" },
-})
+-- Small quality-of-life plugins (not UI chrome).
+-- Noice lives in plugins/ui/noice.lua — do not re-add it here.
 
-vim.notify = require("notify").setup({
-	background_colour = "#000000",
-	render = "compact",
-	stages = "slide",
-})
-require("noice").setup({
-	messages = {
-		enabled = true,
-		view = "mini",
-		view_error = "notify", -- view for errors
-		view_warn = "notify", -- view for warnings
-		view_history = "messages", -- view for :messages
-		view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
-	},
-	notify = {
-		enabled = true,
-		view = "notify",
-	},
-	hover = {
-		enabled = false,
-	},
-	lsp = {
-		hover = {
-			enabled = false,
+return {
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		opts = {
+			modes = {
+				search = { enabled = false },
+			},
 		},
-		signature = {
-			enabled = false,
+		keys = {
+			{
+				"ss",
+				mode = "n",
+				function()
+					require("flash").jump()
+				end,
+				desc = "Flash jump",
+			},
+			{
+				"S",
+				mode = "n",
+				function()
+					require("flash").treesitter()
+				end,
+				desc = "Flash treesitter",
+			},
+			{
+				"<leader>r",
+				mode = "n",
+				function()
+					require("flash").remote()
+				end,
+				desc = "Flash remote",
+			},
+			{
+				"<leader>R",
+				mode = "n",
+				function()
+					require("flash").treesitter_search()
+				end,
+				desc = "Flash treesitter search",
+			},
 		},
 	},
-	presets = {
-		long_message_to_split = true, -- long messages will be sent to a split
-		inc_rename = false, -- enables an input dialog for inc-rename.nvim
-		lsp_doc_border = false, -- add a border to hover docs and signature help
-	},
-})
+}

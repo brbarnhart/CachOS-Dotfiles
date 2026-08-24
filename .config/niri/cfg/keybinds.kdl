@@ -7,7 +7,7 @@ binds {
     // https://docs.noctalia.dev/getting-started/keybinds/
 
     // ─── Applications ───
-    Mod+Return                          hotkey-overlay-title="Alacritty"            { spawn "alacritty"; }
+    Mod+Return                          hotkey-overlay-title="Ghostty"            { spawn "ghostty"; }
     Mod+Shift+Space                     hotkey-overlay-title="Open App Launcher"    { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
     Mod+B                               hotkey-overlay-title="Brave"                { spawn "brave"; }
     Mod+ALT+L                           hotkey-overlay-title="Lock Screen"          { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
