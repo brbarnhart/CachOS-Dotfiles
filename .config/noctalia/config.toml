@@ -1,0 +1,199 @@
+# Noctalia v5 config, drafted from the v4 settings.json in this directory.
+# v5 does not read settings.json. ~/.local/state/noctalia/settings.toml still
+# wins over this file when both set the same key.
+
+[shell]
+font_family = "Adwaita Sans"
+avatar_path = "/home/ben/.face"
+telemetry_enabled = false
+# v4 kept clipboard history off and used cliphist from outside the shell.
+clipboard_enabled = false
+
+[shell.panel]
+launcher_placement = "floating"
+launcher_position = "center"
+control_center_placement = "attached"
+# v4 control center opened next to its bar button.
+open_near_click_control_center = true
+
+[shell.launcher]
+app_grid = true
+sort_by_usage = true
+# v4 terminalCommand was "alacritty -e". v5 wraps Terminal=true apps itself
+# and must not be given "-e". With TERMINAL unset it prefers Ghostty, which
+# matches the Mod+Return bind.
+pinned = [
+  "obsidian",
+  "org.prismlauncher.PrismLauncher",
+  "steam",
+  "zotero",
+  "com.github.PintaProject.Pinta",
+  "anki",
+]
+
+[shell.session]
+grid = false
+show_shortcuts = true
+
+[[shell.session.actions]]
+action = "lock"
+shortcut = "1"
+countdown_seconds = 10
+
+[[shell.session.actions]]
+action = "suspend"
+shortcut = "2"
+countdown_seconds = 10
+
+[[shell.session.actions]]
+action = "command"
+label = "Hibernate"
+glyph = "moon"
+command = "systemctl hibernate"
+shortcut = "3"
+countdown_seconds = 10
+
+[[shell.session.actions]]
+action = "reboot"
+shortcut = "4"
+countdown_seconds = 10
+
+[[shell.session.actions]]
+action = "logout"
+shortcut = "5"
+countdown_seconds = 10
+
+[[shell.session.actions]]
+action = "shutdown"
+shortcut = "6"
+countdown_seconds = 10
+variant = "destructive"
+
+[[shell.session.actions]]
+action = "command"
+label = "Reboot to UEFI"
+glyph = "settings"
+command = "systemctl reboot --firmware-setup"
+shortcut = "7"
+countdown_seconds = 10
+
+[theme]
+mode = "dark"
+source = "builtin"
+builtin = "Catppuccin"
+sync_color_scheme = true
+
+[audio]
+enable_overdrive = false
+enable_volume_sounds = false
+enable_notification_sounds = false
+
+[location]
+auto_locate = false
+
+[weather]
+enabled = true
+unit = "imperial"
+effects = true
+
+[notification]
+position = "top_right"
+layer = "overlay"
+background_opacity = 1.0
+
+[dock]
+enabled = false
+
+[wallpaper]
+enabled = true
+directory = "/home/ben/Wallpapers"
+fill_mode = "crop"
+fill_color = "#000000"
+transition = ["fade", "disc", "stripes", "wipe", "honeycomb"]
+transition_duration = 1500
+edge_smoothness = 0.05
+
+[wallpaper.default]
+path = "/home/ben/Wallpapers/parting_ways.png"
+
+[wallpaper.automation]
+enabled = false
+interval_seconds = 300
+order = "random"
+recursive = true
+
+[[wallpaper.favorite]]
+path = "/home/ben/Wallpapers/parting_ways.png"
+theme_mode = "dark"
+palette_source = "builtin"
+builtin_palette = "Catppuccin"
+
+[bar.main]
+position = "top"
+background_opacity = 0.93
+radius = 12
+margin_ends = 4
+margin_edge = 4
+widget_spacing = 6
+capsule = true
+capsule_opacity = 1.0
+auto_hide = false
+reserve_space = true
+start = ["launcher", "clock", "cpu", "temp", "ram", "active_window", "media"]
+center = ["workspaces"]
+end = ["tray", "network", "notifications", "battery", "volume", "control-center"]
+
+[widget.clock]
+format = "%H:%M %a, %b %d"
+vertical_format = "%H %M - %d %m"
+tooltip_format = "%H:%M %a, %b %d"
+
+[widget.cpu]
+type = "sysmon"
+stat = "cpu_usage"
+visualization = "none"
+
+[widget.temp]
+type = "sysmon"
+stat = "cpu_temp"
+visualization = "none"
+
+[widget.ram]
+type = "sysmon"
+stat = "ram_used"
+visualization = "none"
+
+[widget.active_window]
+max_length = 145
+title_scroll = "on_hover"
+display = "icon_and_text"
+show_empty_label = false
+
+[widget.media]
+artist_first = true
+hide_album_art = false
+hide_when_no_media = true
+hide_when_idle = false
+max_length = 145
+title_scroll = "on_hover"
+
+[widget.workspaces]
+style = "regular"
+label_source = "id"
+max_label_chars = 2
+labels_only_when_occupied = true
+hide_when_empty = false
+focused_color = "primary"
+occupied_color = "secondary"
+empty_color = "secondary"
+font_weight = 700
+
+[widget.network]
+show_label = false
+
+[widget.battery]
+display_mode = "graphic"
+show_label = false
+
+[widget.volume]
+show_label = false
