@@ -20,3 +20,5 @@ function y() {
 
 export PATH="$HOME/.grok/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+
+. "$HOME/.local/bin/env"

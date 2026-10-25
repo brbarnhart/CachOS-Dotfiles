@@ -73,3 +73,14 @@ vim.api.nvim_create_autocmd("User", {
 		print("AutoSave disabled")
 	end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "markdown", "text" },
+	callback = function()
+		vim.opt_local.wrap = true
+		vim.opt_local.linebreak = true
+		vim.opt_local.breakindent = true
+		vim.keymap.set({ "n", "v" }, "j", "gj", { buffer = true, silent = true })
+		vim.keymap.set({ "n", "v" }, "k", "gk", { buffer = true, silent = true })
+	end,
+})

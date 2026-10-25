@@ -20,7 +20,10 @@
         "pinnedApps": [
             "obsidian",
             "org.prismlauncher.PrismLauncher",
-            "steam"
+            "steam",
+            "zotero",
+            "com.github.PintaProject.Pinta",
+            "anki"
         ],
         "position": "center",
         "screenshotAnnotationTool": "",
@@ -28,7 +31,7 @@
         "showIconBackground": false,
         "sortByMostUsed": true,
         "terminalCommand": "alacritty -e",
-        "viewMode": "list"
+        "viewMode": "grid"
     },
     "audio": {
         "mprisBlacklist": [
